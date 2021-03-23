@@ -39,7 +39,7 @@ us.add(u);
 %>
 <%
 ArrayList<User> list=Users.myusers;
-
+request.setAttribute("list", list);
 %>
 </head>
 <body>
@@ -74,8 +74,18 @@ ArrayList<User> list=Users.myusers;
 </div>
 
 
-<table>
+<table class="table table-bordered">
 <tr><td>Nom</td><td>Prenom</td><td>Age</td></tr>
+<c:forEach items="${list}" var="u">
+<tr>
+<td>${u.getNom() }</td><td>${u.getPrenom() }</td><td>${u.getAge()}</td>
+</tr>
+
+
+
+
+
+</c:forEach>
 
 </table>
 
