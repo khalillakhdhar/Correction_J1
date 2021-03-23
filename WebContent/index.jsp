@@ -10,6 +10,32 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Formulaire</title>
+
+
+
+
+<%
+String message="";
+if(request.getParameter("nom")!=null)
+{
+String nom=request.getParameter("nom");
+String prenom=request.getParameter("prenom");
+try
+{
+int age=Integer.parseInt(request.getParameter("age"));
+User u=new User(nom,prenom,age);
+Users us=new Users();
+us.add(u);
+}catch(Exception ex)
+{
+	message="l'age doit être numérique est non null";
+	
+}
+
+}
+
+
+%>
 </head>
 <body>
 
@@ -19,19 +45,19 @@
     <div class="col-sm">
     </div>
     <div class="col-sm">
-<form>
+<form method="post" action="index.jsp">
   <div class="mb-3">
-    <label for="nom" class="form-label">Nom</label>
-    <input type="text" class="form-control" name="nom" id="nom" >
+    <label for="nom"  class="form-label">Nom</label>
+    <input type="text" required class="form-control" name="nom" id="nom" >
 
   </div>
   <div class="mb-3">
-    <label for="prenom" class="form-label">Prenom</label>
-    <input type="text" name="prenom" class="form-control" id="prenom">
+    <label for="prenom"  class="form-label">Prenom</label>
+    <input type="text" required name="prenom" class="form-control" id="prenom">
   </div>
   <div class="mb-3">
     <label for="age" class="form-label">age</label>
-    <input type="number" name="age" min="1" class="form-control" id="age">
+    <input type="number" required name="age" min="1" class="form-control" id="age"><%=message %> 
   </div>
   <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
