@@ -31,7 +31,7 @@ request.setAttribute("list", list);
     <div class="col-sm">
 <form method="post" action="exemple">
   <div class="mb-3">
-    <label for="nom"  class="form-label">Nom</label>
+    <label for="nom"  class="form-label">Nom </label>
     <input type="text" required class="form-control" name="nom" id="nom" >
 
   </div>
