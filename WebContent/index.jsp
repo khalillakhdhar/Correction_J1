@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@page import="codes.User" %>
 <%@page import="codes.Users" %>
@@ -36,6 +37,10 @@ us.add(u);
 
 
 %>
+<%
+ArrayList<User> list=Users.myusers;
+
+%>
 </head>
 <body>
 
@@ -67,6 +72,12 @@ us.add(u);
     </div>
   </div>
 </div>
+
+
+<table>
+<tr><td>Nom</td><td>Prenom</td><td>Age</td></tr>
+
+</table>
 
 
 </body>
