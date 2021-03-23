@@ -15,28 +15,7 @@
 
 
 
-<%
-String message="";
-if(request.getParameter("nom")!=null)
-{
-String nom=request.getParameter("nom");
-String prenom=request.getParameter("prenom");
-try
-{
-int age=Integer.parseInt(request.getParameter("age"));
-User u=new User(nom,prenom,age);
-Users us=new Users();
-us.add(u);
-}catch(Exception ex)
-{
-	message="l'age doit être numérique est non null";
-	
-}
 
-}
-
-
-%>
 <%
 ArrayList<User> list=Users.myusers;
 request.setAttribute("list", list);
@@ -50,7 +29,7 @@ request.setAttribute("list", list);
     <div class="col-sm">
     </div>
     <div class="col-sm">
-<form method="post" action="index.jsp">
+<form method="post" action="exemple">
   <div class="mb-3">
     <label for="nom"  class="form-label">Nom</label>
     <input type="text" required class="form-control" name="nom" id="nom" >
@@ -62,7 +41,7 @@ request.setAttribute("list", list);
   </div>
   <div class="mb-3">
     <label for="age" class="form-label">age</label>
-    <input type="number" required name="age" min="1" class="form-control" id="age"><%=message %> 
+    <input type="number" required name="age" min="1" class="form-control" id="age">
   </div>
   <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
@@ -72,7 +51,7 @@ request.setAttribute("list", list);
     </div>
   </div>
 </div>
-
+<a href="Myserv">tester la servlet</a>
 
 <table class="table table-bordered">
 <tr><td>Nom</td><td>Prenom</td><td>Age</td></tr>
